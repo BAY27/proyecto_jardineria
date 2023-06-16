@@ -8,16 +8,17 @@ class ClaseConexion{
 
     private $usuario = "root";//TODO: Variable del usuario
     private $password = 'root';//TODO: Variable del pwd
-    private $base = 'quinto';//TODO: Variable del base de datos
+    //private $basequinto = 'quinto';//TODO: Variable del base de datos
+    private $basejardineria = 'jardineria';//TODO: Variable del base de datos
 
 //TODO: Procedimiento para conectar a la base de datos
     public function ProcedimientoConectar(){
-        $this->conexion = mysqli_connect($this->host,$this->usuario,$this->password, $this->base);
+        $this->conexion = mysqli_connect($this->host,$this->usuario,$this->password, $this->basejardineria);
         mysqli_query($this->conexion,"SET NAMES utf8");
         if($this->conexion == 0){
             die('error al conectarse al servidor' . mysqli_error($this->conexion));
         }
-        $this->db= mysqli_select_db($this->conexion, $this->base);
+        $this->db= mysqli_select_db($this->conexion, $this->basejardineria);
         if($this->db == 0){
             die('error al conectarse a la base de datos'. mysqli_error($this->conexion));
         }
