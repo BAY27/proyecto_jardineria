@@ -3,14 +3,11 @@ include_once('../../config/sesiones.php');
 if (isset($_SESSION["idUsuario"])) {
     $_SESSION["ruta"] = "Categoria de Productos";
 ?>
-
     <!DOCTYPE html>
     <html lang="es">
-
     <head>
         <?php require_once('../html/head.php')  ?>
         <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
-
     </head>
 
     <body id="page-top">
@@ -64,7 +61,7 @@ if (isset($_SESSION["idUsuario"])) {
 
 
                 <!-- Ventanas Modales -->
-                <div class="modal fade" id="modalCategoria" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div  class="modal fade" id="modalCategoria" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
@@ -75,7 +72,7 @@ if (isset($_SESSION["idUsuario"])) {
                             </div>
                             <form id="gama_productos_form">
                                 <div class="modal-body">
-                                    <input type="hidden" name="idUsaurio" id="idUsaurio">
+                                 
                                     <div class="form-group">
                                         <label  class="control-label">Gama</label>
                                         <input type="text" name="gama" id="gama" class="form-control" required>

@@ -2,9 +2,10 @@
 /*TODO: Requerimientos */
 
 require_once("../models/gama_productos.model.php");
+require_once('../models/subirFotos.model.php');
 error_reporting(0);
-
 $gama_producto = new gama_productosModel;
+$subirfotos = new SubirFoto;
 switch ($_GET["op"]) {
         /*TODO: Procedimiento para listar todos los registros */
     case 'todos':
@@ -28,11 +29,22 @@ switch ($_GET["op"]) {
         $gama = $_POST["gama"];
         $descripcion_texto = $_POST["descripcion_texto"];
         $descripcion_html = $_POST["descripcion_html"];
-        $imagen = $_POST["imagen"];
+
+        //procedimeinto para guardar la imagen en los archivos del proyecto
+        if ($_FILES['imagen'] != '') {
+            $imagen = $_FILES["imagen"];
+            $direccionimg = $subirfotos->guardar($imagen);
+            $imagen ='';
+            $imagen = $direccionimg;
+        } 
+        //poner en una variable la ruta
 
         $datos = array();
-        $datos = $gama_producto->Insertar($gama, $descripcion_texto, $descripcion_html, $imagen);
+        $datos = $gama_producto->Insertar($gama, $descripcion_texto, $descripcion_html, $direccionimg);
         echo json_encode($datos);
+
+
+
         break;
         /*TODO: Procedimiento para actualizar */
     case 'actualizar':
