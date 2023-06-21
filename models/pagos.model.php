@@ -14,11 +14,8 @@ class PagosModel{
         $con = new ClaseConexion();
         $con = $con->ProcedimientoConectar();
         $cadena = "SELECT * FROM `pago` WHERE `codigo_cliente`=$codigo_cliente and `id_transaccion`=$id_transaccion";
-        if (mysqli_query($con, $cadena)){
-            return 'ok';
-        }else{
-            return mysqli_error($con);
-        }
+        $datos = mysqli_query($con,$cadena);
+        return $datos;
     }
     public function insertar($codigo_cliente, $forma_pago, $id_transaccion, $fecha_pago, $total){
         $con = new ClaseConexion();
