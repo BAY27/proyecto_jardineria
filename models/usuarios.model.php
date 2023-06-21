@@ -1,6 +1,6 @@
 <?php
 //TODO: archivos requeridos
-require_once('../config/config.php');
+require_once('../config/configUsu.php');
 require_once('usuariosroles.model.php');
 
 class UsuariosModel
@@ -10,6 +10,7 @@ class UsuariosModel
         $con = new ClaseConexion();
         $con = $con->ProcedimientoConectar();
         $cadena = "SELECT usuario.*, roles.* FROM usuario INNER JOIN Usuarios_Roles on usuario.idUsaurio = Usuarios_Roles.idUsuario INNER JOIN roles on Usuarios_Roles.idRoles = roles.idRoles WHERE correo = '$correo' and contrasenia='$contrasenia'";
+        print $cadena;
         $datos = mysqli_query($con, $cadena);
         return $datos;
     }
@@ -49,7 +50,7 @@ class UsuariosModel
         try {
             $datos = mysqli_query($con,$cadena);
             $UsuarioRoles = new UsuariosRolesModel();
-            $UsuarioRoles->Actualizar($idUsuario, $idRoles);
+            //$UsuarioRoles->Actualizar($idUsuario, $idRoles);
             return 'ok';
         } catch (Throwable $th) {
             return json_encode($th->getMessage());

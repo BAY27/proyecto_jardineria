@@ -1,6 +1,6 @@
 <?php
 //TODO: archivos requeridos
-require_once('../config/config.php');
+require_once('../config/configUsu.php');
 class UsuariosRolesModel
 {
    
