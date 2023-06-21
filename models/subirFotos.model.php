@@ -6,6 +6,6 @@ class SubirFoto{
         return '../'.$destino;
     }
     public function cambiarnombre(){
-
+        
     }
 }
