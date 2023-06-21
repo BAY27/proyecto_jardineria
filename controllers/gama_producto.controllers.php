@@ -1,7 +1,7 @@
 <?php
 /*TODO: Requerimientos */
-require_once("../config/cors.php");
-require_once("../models/gama_producto.models.php");
+
+require_once("../models/gama_productos.model.php");
 error_reporting(0);
 
 $gama_producto = new gama_productosModel;

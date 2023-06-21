@@ -9,6 +9,8 @@ if (isset($_SESSION["idUsuario"])) {
 
     <head>
         <?php require_once('../html/head.php')  ?>
+        <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+
     </head>
 
     <body id="page-top">
@@ -70,7 +72,6 @@ if (isset($_SESSION["idUsuario"])) {
                                 <button type="button" onclick="limpiar()" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
-
                             </div>
                             <form id="gama_productos_form">
                                 <div class="modal-body">
@@ -103,10 +104,6 @@ if (isset($_SESSION["idUsuario"])) {
                     </div>
                 </div>
 
-
-
-
-
                 <!-- Footer -->
                 <?php include_once('../html/footer.php') ?>
                 <!-- End of Footer -->
@@ -117,7 +114,8 @@ if (isset($_SESSION["idUsuario"])) {
         </a>
         <!--scripts-->
         <?php include_once('../html/scripts.php')  ?>
-        <script src="./usuarios.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+        <script src="gama_productos.js"></script>
     </body>
 
     </html>
