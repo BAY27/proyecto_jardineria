@@ -1,7 +1,7 @@
 <?php
 include_once('../../config/sesiones.php');
 if (isset($_SESSION["idUsuario"])) {
-    $_SESSION["ruta"] = "Usuarios";
+    $_SESSION["ruta"] = "Categoria de Productos";
 ?>
 
     <!DOCTYPE html>
@@ -34,7 +34,8 @@ if (isset($_SESSION["idUsuario"])) {
                                     <div class="card-header py-3">
                                         <h6 class="m-0 font-weight-bold text-primary">Lista de <?php  echo $_SESSION["ruta"] ?></h6>
                                         
-                                        <button onclick="cargaSelectRoles()" class="btn btn-primary float-right" data-toggle="modal" data-target="#modalUsuarios"> Nuevo Usuario</button>
+                                        <button onclick="cargaSelectRoles()" class="btn btn-primary float-right" 
+                                        data-toggle="modal" data-target="#modalCategoria"> Nueva Categoria de Producto</button>
                                     
                                     </div>
                                     <div class="card-body">
@@ -42,14 +43,14 @@ if (isset($_SESSION["idUsuario"])) {
                                             <thead>
                                                 <tr>
                                                     <th>#</th>
-                                                    <th>Nombres</th>
-                                                    <th>Apellidos</th>
-                                                    <th>Correo</th>
-                                                    <th>Rol</th>
+                                                    <th>Gama</th>
+                                                    <th>Descripción</th>
+                                                    <th>Html</th>
+                                                    <th>Imagen</th>
                                                     <th>Opciones</th>
                                                 </tr>
                                             </thead>
-                                            <tbody id='TablaUsuarios'></tbody>
+                                            <tbody id='TablaCategorias'></tbody>
                                         </table>
 
                                     </div>
@@ -61,43 +62,36 @@ if (isset($_SESSION["idUsuario"])) {
 
 
                 <!-- Ventanas Modales -->
-                <div class="modal fade" id="modalUsuarios" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal fade" id="modalCategoria" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="titulModalUsuarios">Ingresar Usuarios</h5>
+                                <h5 class="modal-title" id="titulModalCategoria">Ingresar Categoria de Producto</h5>
                                 <button type="button" onclick="limpiar()" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
 
                             </div>
-                            <form id="usuarios_form">
+                            <form id="gama_productos_form">
                                 <div class="modal-body">
                                     <input type="hidden" name="idUsaurio" id="idUsaurio">
                                     <div class="form-group">
-                                        <label for="Nombres" class="control-label">Nombres</label>
-                                        <input type="text" name="Nombres" id="Nombres" class="form-control" required>
+                                        <label  class="control-label">Gama</label>
+                                        <input type="text" name="gama" id="gama" class="form-control" required>
                                     </div>
                                     <div class="form-group">
-                                        <label for="Apellidos" class="control-label">Apellidos</label>
-                                        <input type="text" name="Apellidos" id="Apellidos" class="form-control" required>
+                                        <label  class="control-label">Descripcion Texto</label>
+                                        <textarea type="text" name="descripcion_texto" id="descripcion_texto" class="form-control" cols="30" rows="10" 
+                                        required></textarea>
                                     </div>
                                     <div class="form-group">
-                                        <label for="correo" class="control-label">Correo</label>
-                                        <input type="mail" name="correo" id="correo" class="form-control" required>
+                                        <label  class="control-label">Descripcion Html</label>
+                                        <textarea placeholder="Ingrese un texto" class="form-control"  name="descripcion_html" id="descripcion_html" cols="30" rows="10"></textarea>
                                     </div>
                                     <div class="form-group">
-                                        <label for="contrasenia" class="control-label">contrasenia</label>
-                                        <input type="text" name="contrasenia" id="contrasenia" class="form-control">
+                                        <label  class="control-label">Imagen de Categoria</label>
+                                        <input type="file" name="imagen" id="imagen" class="form-control">
                                     </div>
-                                    <div class="form-group">
-                                        <label for="Rol" class="control-label">Rol</label>
-                                        <select name="idRoles" id="idRoles" class="form-control">
-                                           
-                                        </select>
-
-                                    </div>
-
                                 </div>
                                 <div class="modal-footer">
                                     <button type="submit" class="btn btn-primary">Guardar</button>

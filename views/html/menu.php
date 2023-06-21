@@ -5,7 +5,7 @@
     <div class="sidebar-brand-icon rotate-n-15">
         <i class="fas fa-laugh-wink"></i>
     </div>
-    <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
+    <div class="sidebar-brand-text mx-3">Jardineria <sup>2</sup></div>
 </a>
 
 <!-- Divider -->
@@ -23,7 +23,7 @@
 
 <!-- Heading -->
 <div class="sidebar-heading">
-    Interface
+    Menu General
 </div>
 
 <!-- Nav Item - Pages Collapse Menu -->
@@ -31,14 +31,14 @@
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
         aria-expanded="true" aria-controls="collapseTwo">
         <i class="fas fa-fw fa-cog"></i>
-        <span>Components</span>
+        <span>Administrador</span>
     </a>
     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Custom Components:</h6>
-            <a class="collapse-item" href="../clientes/clientes.php">Clientes</a>
-            <a class="collapse-item" href="../alumnos/alumnos.views.php">Alumnos</a>
-            <a class="collapse-item" href="../productos/productos.php">Productos</a>
+            <h6 class="collapse-header">Menu Administrador:</h6>
+            <a class="collapse-item" href="../Clientes/clientes.php">Clientes</a>
+            <a class="collapse-item" href="../gama_productos/gama_productos.view.php">Categoria de Productos</a>
+            
             <a class="collapse-item" href="../usuarios/usuarios.php">Usuarios</a>
         
         </div>
