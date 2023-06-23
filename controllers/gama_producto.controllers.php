@@ -40,7 +40,7 @@ switch ($_GET["op"]) {
         //poner en una variable la ruta
 
         $datos = array();
-        $datos = $gama_producto->Insertar($gama, $descripcion_texto, $descripcion_html, $direccionimg);
+        $datos = $gama_producto->Insertar($gama, $descripcion_texto, $descripcion_html, $imagen);
         echo json_encode($datos);
 
 
