@@ -64,4 +64,11 @@ class EmpleadoModel
         $datos = mysqli_query($con, $cadena);
         return $datos;
     }
+    public function filtroOficina($codigo_oficina) {
+        $con = new ClaseConexion();
+        $con = $con->ProcedimientoConectar();
+        $cadena = "select * from empleado where codigo_oficina='$codigo_oficina'";
+        $datos = mysqli_query($con, $cadena);
+        return $datos;
+    }
 }

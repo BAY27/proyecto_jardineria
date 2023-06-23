@@ -68,4 +68,14 @@ switch ($_GET["op"]) {
         $res = mysqli_fetch_assoc($datos);
         echo json_encode($res);
         break;
+
+    case 'filtroOficina':
+        $codigo_oficina = $_POST['codigo_oficina'];
+        $datos = array();
+        $datos = $empleado->filtroOficina($codigo_oficina);
+        while ($row = mysqli_fetch_assoc($datos)) {
+            $todos[] = $row;
+        }
+        echo json_encode($todos);
+        break;
 }

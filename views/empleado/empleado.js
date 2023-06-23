@@ -6,7 +6,6 @@ var init = () => {
 $().ready(() => {
     cargaTabla();
 });
-
 var guardaryeditar = async (e) => {
     e.preventDefault();
     var ultimoRegistro = await ultimoRegistro();
@@ -42,7 +41,6 @@ var guardaryeditar = async (e) => {
 
 
 }
-
 var ultimoRegistro = () => {
     $.post('../../Controllers/empleado.controllers.php?op=ultimoRegistro', async (ultimocodigo) => {
         ultimocodigo = JSON.parse(ultimocodigo);
@@ -53,7 +51,6 @@ var ultimoRegistro = () => {
         }
     })
 }
-
 var cargaTabla = () => {
     $.post('../../Controllers/empleado.controllers.php?op=todos', (listaEmpleados) => {
         var html = '';
@@ -91,6 +88,31 @@ var cargaTabla = () => {
     })
 }
 
+var cargaOficina = ()=>
+{
+    var html='<option value=0>Seleccione una oficina</option>';
+    $.post('../../Controllers/oficina.controllers.php?op=todos',(listaoficinas)=>{
+        listaoficinas = JSON.parse(listaoficinas);
+        $.each(listaoficinas, (index, oficina)=>{
+            html +=`<option value='${oficina.codigo_oficina}'> ${oficina.ciudad}</option>`;
+        })
+        $('#combo_oficina').html(html)
+    })
+}
+
+var cargaJefe = (combo_oficina)=>{
+    var codigo_oficina = combo_oficina.value;
+    var html='<option value=0>Seleccione una oficina</option>';
+    $.post('../../Controllers/empleado.controllers.php?op=filtroOficina',
+    {codigo_oficina: codigo_oficina},(listaEmpleados)=>{
+        listaEmpleados=JSON.parse(listaEmpleados);
+        $.each(listaEmpleados, (index, empleado)=>{
+            html +=`<option value='${empleado.codigo_empleado}'> ${empleado.nombre +' ' + empleado.apellido1 }</option>`;
+        })
+        $('#combo_jefe').html(html)
+    })
+
+}
 
 var limpiacajas = () => {
     document.getElementById('codigo_empleado').value = '';

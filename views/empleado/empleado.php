@@ -34,7 +34,7 @@ if (isset($_SESSION["idUsuario"])) {
                                     <div class="card-header py-3">
                                         <h6 class="m-0 font-weight-bold text-primary">Lista de <?php echo $_SESSION["ruta"] ?></h6>
 
-                            <button class='btn btn-primary' type='button' data-toggle='modal' data-target='#modalempleado'>
+                            <button class='btn btn-primary float-right' onclick="cargaOficina()" type='button' data-toggle='modal' data-target='#modalempleado'>
                                 Nuevo
                             </button>
                             </div>
@@ -103,7 +103,7 @@ if (isset($_SESSION["idUsuario"])) {
                                 </div>
                                 <div class='form_group'>
                                 <label class='form-control-label' for='email'>Oficina</label>
-                                    <select name='combo_oficina' id='combo_oficina' class='form-control' aria-label=''>
+                                    <select onchange=" cargaJefe(this)" name='combo_oficina' id='combo_oficina' class='form-control' aria-label=''>
                                         <option selected>Seleccione una opción</option>
                                     </select>
                                 </div>
