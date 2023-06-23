@@ -103,7 +103,7 @@ if (isset($_SESSION["idUsuario"])) {
                                 </div>
                                 <div class='form_group'>
                                 <label class='form-control-label' for='email'>Oficina</label>
-                                    <select onchange=" cargaJefe(this)" name='combo_oficina' id='combo_oficina' class='form-control' aria-label=''>
+                                    <select onchange=" cargaJefe(this); cargapuesto(this);" name='combo_oficina' id='combo_oficina' class='form-control' aria-label=''>
                                         <option selected>Seleccione una opción</option>
                                     </select>
                                 </div>

@@ -22,11 +22,12 @@ class EmpleadoModel
         return $datos;
     }
     /*TODO: Procedimiento para insertar */
-    public function Insertar($nombre, $apellido1, $apellido2, $extension, $email, $codigo_oficina, $codigo_jefe, $puesto,)
+    public function Insertar($codigo_empleado,$nombre, $apellido1, $apellido2, $extension, $email, $codigo_oficina, $codigo_jefe, $puesto)
     {
         $con = new ClaseConexion();
         $con = $con->ProcedimientoConectar();
-        $cadena = "INSERT into empleado(nombre,apellido1,apellido2,extension,email,codigo_oficina,codigo_jefe,puesto,) values ( '$nombre', '$apellido1', '$apellido2', '$extension', '$email', '$codigo_oficina', $codigo_jefe,  '$puesto',)";
+        $cadena = "INSERT into empleado(codigo_empleado,nombre,apellido1,apellido2,extension,email,codigo_oficina,codigo_jefe,puesto) values ($codigo_empleado, '$nombre', '$apellido1', '$apellido2', '$extension', '$email', '$codigo_oficina', $codigo_jefe,  '$puesto')";
+        
         if (mysqli_query($con, $cadena)) {
             return "ok";
         } else {
@@ -34,7 +35,7 @@ class EmpleadoModel
         }
     }
     /*TODO: Procedimiento para actualizar */
-    public function Actualizar($codigo_empleado, $nombre, $apellido1, $apellido2, $extension, $email, $codigo_oficina, $codigo_jefe, $puesto,)
+    public function Actualizar($codigo_empleado, $nombre, $apellido1, $apellido2, $extension, $email, $codigo_oficina, $codigo_jefe, $puesto)
     {
         $con = new ClaseConexion();
         $con = $con->ProcedimientoConectar();
@@ -68,6 +69,13 @@ class EmpleadoModel
         $con = new ClaseConexion();
         $con = $con->ProcedimientoConectar();
         $cadena = "select * from empleado where codigo_oficina='$codigo_oficina'";
+        $datos = mysqli_query($con, $cadena);
+        return $datos;
+    }
+    public function filtropuesto($codigo_oficina) {
+        $con = new ClaseConexion();
+        $con = $con->ProcedimientoConectar();
+        $cadena = "select DISTINCT puesto from empleado where codigo_oficina='$codigo_oficina'";
         $datos = mysqli_query($con, $cadena);
         return $datos;
     }

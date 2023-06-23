@@ -31,15 +31,15 @@ switch ($_GET["op"]) {
         $apellido2 = $_POST["apellido2"];
         $extension = $_POST["extension"];
         $email = $_POST["email"];
-        $codigo_oficina = $_POST["codigo_oficina"];
-        $codigo_jefe = $_POST["codigo_jefe"];
+        $codigo_oficina = $_POST["combo_oficina"];
+        $codigo_jefe = $_POST["combo_jefe"];
         $puesto = $_POST["puesto"];
 
         $datos = array();
         $datos = $empleado->Insertar($codigo_empleado, $nombre, $apellido1, $apellido2, $extension, $email, $codigo_oficina, $codigo_jefe, $puesto);
         echo json_encode($datos);
         break;
-        /*TODO: Procedimiento para actualizar */
+        /*TODO: Procedimiento para actualizar Maria Eugenia Serrano*/
     case 'actualizar':
         $codigo_empleado = $_POST["codigo_empleado"];
         $nombre = $_POST["nombre"];
@@ -47,8 +47,8 @@ switch ($_GET["op"]) {
         $apellido2 = $_POST["apellido2"];
         $extension = $_POST["extension"];
         $email = $_POST["email"];
-        $codigo_oficina = $_POST["codigo_oficina"];
-        $codigo_jefe = $_POST["codigo_jefe"];
+        $codigo_oficina = $_POST["combo_oficina"];
+        $codigo_jefe = $_POST["combo_jefe"];
         $puesto = $_POST["puesto"];
         $datos = array();
         $datos = $empleado->Actualizar($codigo_empleado, $nombre, $apellido1, $apellido2, $extension, $email, $codigo_oficina, $codigo_jefe, $puesto);
@@ -73,6 +73,15 @@ switch ($_GET["op"]) {
         $codigo_oficina = $_POST['codigo_oficina'];
         $datos = array();
         $datos = $empleado->filtroOficina($codigo_oficina);
+        while ($row = mysqli_fetch_assoc($datos)) {
+            $todos[] = $row;
+        }
+        echo json_encode($todos);
+        break;
+    case 'filtropuesto':
+        $codigo_oficina = $_POST['codigo_oficina'];
+        $datos = array();
+        $datos = $empleado->filtropuesto($codigo_oficina);
         while ($row = mysqli_fetch_assoc($datos)) {
             $todos[] = $row;
         }
