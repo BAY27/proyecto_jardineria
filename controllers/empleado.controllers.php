@@ -1,7 +1,7 @@
 <?php
 /*TODO: Requerimientos */
-require_once("../config/cors.php");
-require_once("../models/empleado.models.php");
+
+require_once("../models/empleados.model.php");
 error_reporting(0);
 
 $empleado = new EmpleadoModel;
@@ -60,5 +60,12 @@ switch ($_GET["op"]) {
         $datos = array();
         $datos = $empleado->Eliminar($codigo_empleado);
         echo json_encode($datos);
+        break;
+
+    case 'ultimoRegistro':
+        $datos = array();
+        $datos = $empleado->ultimoRegistro();
+        $res = mysqli_fetch_assoc($datos);
+        echo json_encode($res);
         break;
 }

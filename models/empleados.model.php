@@ -57,4 +57,11 @@ class EmpleadoModel
             return false;
         }
     }
+    public function ultimoRegistro (){
+        $con = new ClaseConexion();
+        $con = $con->ProcedimientoConectar();
+        $cadena = "SELECT codigo_empleado FROM empleado ORDER by codigo_empleado DESC LIMIT 1;";
+        $datos = mysqli_query($con, $cadena);
+        return $datos;
+    }
 }
