@@ -36,10 +36,26 @@
     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Menu Administrador:</h6>
-            <a class="collapse-item" href="../Clientes/clientes.php">Clientes</a>
+            <a class="collapse-item" href="../Cliente/cliente.php">Clientes</a>
             <a class="collapse-item" href="../gama_productos/gama_productos.view.php">Categoria de Productos</a>
+            <a class="collapse-item" href="../oficina/oficina.php">Oficinas</a>
             
             <a class="collapse-item" href="../usuarios/usuarios.php">Usuarios</a>
+            <a href='../empleado/empleado.php' class="collapse-item">Empleados</a>
+            
+            <a href='../oficina/oficina.php' class="collapse-item">Oficinas</a>
+            
+  
+            <a href='../pago/pago.php' class="collapse-item">Pagos</a>
+            
+  
+            <a href='../pedido/pedido.php' class="collapse-item">Pedidos</a>
+            
+  
+            <a href='../producto/producto.php' class="collapse-item">Productos</a>
+            
+
+
         
         </div>
     </div>
