@@ -1,7 +1,7 @@
 <?php
 /*TODO: Requerimientos */
-require_once("../config/cors.php");
-require_once("../models/oficina.models.php");
+
+require_once("../models/oficinas.models.php");
 error_reporting(0);
 
 $oficina = new OficinasModel;

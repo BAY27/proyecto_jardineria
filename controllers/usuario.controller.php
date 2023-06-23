@@ -23,7 +23,8 @@ switch ($_GET['op']) {  //TODO: Clausula de desicion para obtener variable tipo 
                 $_SESSION['Apellidos'] = $res['Apellidos'];
                 $_SESSION['correo'] = $res['correo'];
                 $_SESSION['idRoles'] = $res['idRoles'];
-                $_SESSION['Detalle'] = $res['Detalle'];
+                $_SESSION['DetalleRol'] = $res['Detalle'];
+                echo json_encode($res);
                 header('Location:../views/Dashboard/home.php');
                 exit();
             } else {

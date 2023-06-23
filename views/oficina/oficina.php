@@ -8,7 +8,7 @@ if (isset($_SESSION["idUsuario"])) {
 
     <head>
         <?php require_once('../html/head.php')  ?>
-        <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+        
     </head>
 
     <body id="page-top">
@@ -136,8 +136,8 @@ if (isset($_SESSION["idUsuario"])) {
         </a>
         <!--scripts-->
         <?php include_once('../html/scripts.php')  ?>
-        <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
-        <script src="gama_productos.js"></script>
+        
+        <script src="oficina.js"></script>
     </body>
 
     </html>
